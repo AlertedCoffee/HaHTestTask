@@ -1,0 +1,22 @@
+package model.Actors;
+
+import model.Actor;
+import model.AttackBehaviors.AttackBehavior;
+import model.ExceesOfHealException;
+import model.TakeDamageBehaviors.TakeDamageBehavior;
+
+public class Player extends Actor {
+    private int healCount = 0;
+
+    public void Heal() throws ExceesOfHealException {
+        if (healCount > 4) throw new ExceesOfHealException();
+        setCurrentHealth(getMaxHealth()/100 * 30);
+        healCount++;
+        System.out.println("Отхилився. XP: "+ getCurrentHealth());
+    }
+    public Player(int maxHealth, AttackBehavior attackBehavior, TakeDamageBehavior takeDamageBehavior) {
+        super(maxHealth, attackBehavior, takeDamageBehavior);
+        System.out.println("Я игрок!");
+    }
+}
+
