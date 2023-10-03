@@ -10,6 +10,8 @@ public class KnifeAttack extends AttackBehavior{
 
     @Override
     public void Attack(Actor protector) {
+        if (protector == null) throw new IllegalArgumentException("protector не может быть равным null");
+
         int damageValue = AttackSuccess(protector.getProtection());
         if (damageValue != -1) {
             System.out.println("Атака ножом " + damageValue);

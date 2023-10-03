@@ -1,4 +1,4 @@
-package model;
+package model.Actors;
 
 public class ExceesOfHealException extends Exception{
     public ExceesOfHealException(){

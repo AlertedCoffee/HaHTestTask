@@ -1,6 +1,7 @@
 package model.AttackBehaviors;
 
 import model.Actor;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
@@ -36,8 +37,12 @@ public abstract class AttackBehavior {
         cubeCount = Math.max(cubeCount, 1);
 
         Random random = new Random();
+
+        // Броски кубиков
         for (int i = 1; i <= cubeCount; i++){
             if( random.nextInt(6) + 1 >= 5) {
+
+                // Возвращается произвольное значение урона при удачной атаке.
                 return  random.nextInt(maxDamage - minDamage + 1) + minDamage;
             }
         }
@@ -46,5 +51,5 @@ public abstract class AttackBehavior {
     }
 
     // Реализация нанесения урона.
-    public abstract void Attack (Actor protector);
+    public abstract void Attack(Actor protector);
 }

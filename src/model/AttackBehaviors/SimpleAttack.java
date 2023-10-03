@@ -2,8 +2,6 @@ package model.AttackBehaviors;
 
 import model.Actor;
 
-import java.util.Random;
-
 // Класс простой атаки.
 public class SimpleAttack extends AttackBehavior{
     public SimpleAttack() {
@@ -12,6 +10,8 @@ public class SimpleAttack extends AttackBehavior{
 
     @Override
     public void Attack(Actor protector) {
+        if (protector == null) throw new IllegalArgumentException("protector не может быть равным null");
+
         int damageValue = AttackSuccess(protector.getProtection());
         if (damageValue != -1) {
             System.out.println("Атака " + damageValue);

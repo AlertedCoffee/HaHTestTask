@@ -1,11 +1,8 @@
 package model;
 
 import model.AttackBehaviors.AttackBehavior;
-import model.AttackBehaviors.SimpleAttack;
 import model.TakeDamageBehaviors.TakeDamageBehavior;
-import org.w3c.dom.ranges.Range;
 
-import java.awt.font.NumericShaper;
 
 // Класс Существа
 public abstract class Actor {
@@ -24,17 +21,17 @@ public abstract class Actor {
     private int currentHealth;
 
     // Максимально здоровье существа.
-    private int maxHealth;
+    private final int maxHealth;
 
     public Actor (int maxHealth, AttackBehavior attackBehavior, TakeDamageBehavior takeDamageBehavior){
-        this.attackBehavior = attackBehavior;
-        this.takeDamageBehavior = takeDamageBehavior;
+        setAttackBehavior(attackBehavior);
+        setTakeDamageBehavior(takeDamageBehavior);
 
-        if (maxHealth <= 0) throw new IllegalArgumentException("maxHealth не может быть меньше или равным 0");
+        if (maxHealth < 0) throw new IllegalArgumentException("maxHealth не может быть меньше 0");
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
 
-        this.alive = true;
+        this.alive = (maxHealth != 0);
     }
 
 
@@ -81,10 +78,12 @@ public abstract class Actor {
     }
 
     public void setAttackBehavior(AttackBehavior attackBehavior) {
+        if (attackBehavior == null) throw new IllegalArgumentException("attackBehavior не может быть null");
         this.attackBehavior = attackBehavior;
     }
 
     public void setTakeDamageBehavior(TakeDamageBehavior takeDamageBehavior) {
+        if (takeDamageBehavior == null) throw new IllegalArgumentException("takeDamageBehavior не может быть null");
         this.takeDamageBehavior = takeDamageBehavior;
     }
 
