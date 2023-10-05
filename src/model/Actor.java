@@ -23,6 +23,7 @@ public abstract class Actor {
     // Максимально здоровье существа.
     private final int maxHealth;
 
+    // Существо рождается с максимальным количеством здоровья, поэтому в конструкторе есть только один параметр здоровья.
     public Actor (int maxHealth, AttackBehavior attackBehavior, TakeDamageBehavior takeDamageBehavior){
         setAttackBehavior(attackBehavior);
         setTakeDamageBehavior(takeDamageBehavior);
@@ -42,6 +43,8 @@ public abstract class Actor {
 
     // Метода получения урона, вызывающий конкретную реализацию.
     public void PerformTakeDamage(int damageValue){
+        if (damageValue < 0) throw new IllegalArgumentException("Нельзя нанести отрицательный урон.");
+
         int damage = takeDamageBehavior.TakeDamage(damageValue);
         if (damage >= currentHealth) {
             currentHealth = 0;

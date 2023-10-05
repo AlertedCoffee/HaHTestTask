@@ -34,6 +34,7 @@ public abstract class AttackBehavior {
     // Метод расчета урона. Возвращает -1 при неудачной атаке.
     protected int AttackSuccess(int protection){
         int cubeCount = CountModifier(protection);
+        // Если модификатор атаки получился меньше 1, все равно будет бросаться один кубик.
         cubeCount = Math.max(cubeCount, 1);
 
         Random random = new Random();
