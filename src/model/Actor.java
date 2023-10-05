@@ -1,8 +1,5 @@
 package model;
 
-import model.AttackBehaviors.AttackBehavior;
-import model.TakeDamageBehaviors.TakeDamageBehavior;
-
 
 // Класс Существа
 public abstract class Actor {

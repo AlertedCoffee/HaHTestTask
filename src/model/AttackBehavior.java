@@ -1,7 +1,6 @@
-package model.AttackBehaviors;
+package model;
 
 import model.Actor;
-import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 

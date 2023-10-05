@@ -1,5 +1,5 @@
 
-package model.TakeDamageBehaviors;
+package model;
 
 // Абстрактный класс получения урона.
 public abstract class TakeDamageBehavior {

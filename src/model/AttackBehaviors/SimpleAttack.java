@@ -1,9 +1,10 @@
 package model.AttackBehaviors;
 
 import model.Actor;
+import model.AttackBehavior;
 
 // Класс простой атаки.
-public class SimpleAttack extends AttackBehavior{
+public class SimpleAttack extends AttackBehavior {
     public SimpleAttack() {
         super(1, 2, 5);
     }

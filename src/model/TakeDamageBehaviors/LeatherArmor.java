@@ -1,7 +1,9 @@
 package model.TakeDamageBehaviors;
 
+import model.TakeDamageBehavior;
+
 // Класс реализации конкретной атаки. Кожаная брони, поглощающий 25% урона.
-public class LeatherArmor extends TakeDamageBehavior{
+public class LeatherArmor extends TakeDamageBehavior {
     public LeatherArmor() {
         super(5);
     }

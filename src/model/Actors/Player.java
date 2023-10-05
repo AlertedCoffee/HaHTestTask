@@ -1,8 +1,8 @@
 package model.Actors;
 
 import model.Actor;
-import model.AttackBehaviors.AttackBehavior;
-import model.TakeDamageBehaviors.TakeDamageBehavior;
+import model.AttackBehavior;
+import model.TakeDamageBehavior;
 
 public class Player extends Actor {
     private int healCount = 0;
